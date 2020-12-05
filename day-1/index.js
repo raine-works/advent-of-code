@@ -5,13 +5,10 @@ const array = [];
 (async () => {
   const input = await getData(url);
   for (i = 0; i < input.length; i++) {
-    let str = '';
-    if(input.charAt(i) !== ' ') {
-      str.concat(input.charAt(i));
-    } else {
-      i+=2
-    }
-    array.push(str);
+    // if(input.charAt(i) !== ' ') {
+
+    // }
+    console.log(input.charAt(i))
   };
-  console.log(array);
+  //console.log(array);
 })();
