@@ -1,17 +1,21 @@
 const axios = require('axios'); 
-require('dotenv').config(); 
+require('dotenv').config({ path: '../.env' }); 
 
 const getData = async (url) => {
-  try {
-    let res = await axios.get(url, {
-      headers: {
-        "Cookie": process.env.TOKEN,
-      },
-    });
-    console.log(res.data);
-  } catch (error) {
+  let result;
+  await axios.get(url, {
+    headers: {
+      "Cookie": process.env.TOKEN
+    }
+  })
+  .then(function(response) {
+    //console.log(response.data);
+    result = response.data;
+  })
+  .catch(function(error) {
     console.log(error);
-  };
+  });
+  return result;
 };
 
 module.exports = getData;

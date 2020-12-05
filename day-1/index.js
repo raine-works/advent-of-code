@@ -1,4 +1,17 @@
 const getData = require('../index');
-const url = 'https://adventofcode.com/2020/day/2/input';
+const url = 'https://adventofcode.com/2020/day/1/input';
 
-console.log(getData(url));
+const array = [];
+(async () => {
+  const input = await getData(url);
+  for (i = 0; i < input.length; i++) {
+    let str = '';
+    if(input.charAt(i) !== ' ') {
+      str.concat(input.charAt(i));
+    } else {
+      i+=2
+    }
+    array.push(str);
+  };
+  console.log(array);
+})();
