@@ -3,7 +3,7 @@ const url = 'https://adventofcode.com/2020/day/2/input';
 
 const array = [];
 
-(async () => {
+const run = async () => {
   const input = await getData(url);
   input.toString();
 
@@ -27,9 +27,10 @@ const array = [];
       str += index;
     };
   };
-  console.log(policyOne(array));
-  console.log(policyTwo(array));
-})();
+  console.log('Day two challenge --->');
+  console.log(`Valid passwords in accordance to policy one: ${policyOne(array)}`);
+  console.log(`Valid passwords in accordance to policy two: ${policyTwo(array)}`);
+};
 
 function policyOne(input) {
   let areValid = 0;
@@ -60,8 +61,9 @@ function policyTwo(input) {
     let max = input[i].max;
     if ((!phrase.charAt(min + 1) == char && !phrase.charAt(max + 1) == char && (phrase.charAt(min + 1) == char && phrase.charAt(max + 1) !== char) || (phrase.charAt(min + 1) !== char && phrase.charAt(max + 1) == char))) {
       areValid++; 
-      console.log(phrase, char, min, max)
     };
   };
   return areValid;
 };
+
+module.exports = run;
