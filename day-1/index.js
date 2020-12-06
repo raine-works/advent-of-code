@@ -17,7 +17,7 @@ const run = async () => {
       str += input.charAt(i);
     };
   };
-  console.log('Day one challenge --->');
+  console.log('<--- Day one challenge --->');
   console.log(`Solving for two: ${solveForTwo(array, 2020)}`);
   console.log(`Solving for three: ${solveForThree(array, 2020)}`);
 };

@@ -27,7 +27,7 @@ const run = async () => {
       str += index;
     };
   };
-  console.log('Day two challenge --->');
+  console.log('<--- Day two challenge --->');
   console.log(`Valid passwords in accordance to policy one: ${policyOne(array)}`);
   console.log(`Valid passwords in accordance to policy two: ${policyTwo(array)}`);
 };
@@ -59,8 +59,13 @@ function policyTwo(input) {
     let char = input[i].char
     let min = input[i].min;
     let max = input[i].max;
-    if ((!phrase.charAt(min + 1) == char && !phrase.charAt(max + 1) == char && (phrase.charAt(min + 1) == char && phrase.charAt(max + 1) !== char) || (phrase.charAt(min + 1) !== char && phrase.charAt(max + 1) == char))) {
+    if (phrase.charAt(min + 1) === char || phrase.charAt(max + 1) === char) {
+      console.log(`${min}-${max} ${char}: ${phrase} VALID`);
       areValid++; 
+    } else if (phrase.charAt(min + 1) === char && phrase.charAt(max + 1) === char) {
+      console.log(`${min}-${max} ${char}: ${phrase} INVALID`);
+    } else if (phrase.charAt(min + 1) !== char && phrase.charAt(max + 1) !== char) {
+      console.log(`${min}-${max} ${char}: ${phrase} INVALID`);
     };
   };
   return areValid;
