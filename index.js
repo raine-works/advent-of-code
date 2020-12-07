@@ -1,5 +1,5 @@
-const dayOne = require('./day-1/index');
-const dayTwo = require('./day-2/index');
+const dayOne = require('./2020/day-1/index');
+const dayTwo = require('./2020/day-2/index');
 
 // Run day one challenge...
 dayOne();
