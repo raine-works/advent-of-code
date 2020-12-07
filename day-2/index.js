@@ -59,13 +59,12 @@ function policyTwo(input) {
     let char = input[i].char
     let min = input[i].min;
     let max = input[i].max;
-    if (phrase.charAt(min + 1) === char || phrase.charAt(max + 1) === char) {
-      console.log(`${min}-${max} ${char}: ${phrase} VALID`);
-      areValid++; 
-    } else if (phrase.charAt(min + 1) === char && phrase.charAt(max + 1) === char) {
-      console.log(`${min}-${max} ${char}: ${phrase} INVALID`);
-    } else if (phrase.charAt(min + 1) !== char && phrase.charAt(max + 1) !== char) {
-      console.log(`${min}-${max} ${char}: ${phrase} INVALID`);
+    
+    if (
+      (phrase.charAt(min - 1) === char && phrase.charAt(max - 1) !== char) ||
+      (phrase.charAt(max - 1) === char && phrase.charAt(min - 1) !== char)
+    ) {
+      areValid++;
     };
   };
   return areValid;
